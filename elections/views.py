@@ -8,10 +8,5 @@ from .models import Candidate
 def index(request):
 	#Candidates의 모든 후보가져오기
 	candidates = Candidate.objects.all()
-	str = ''
-	for candidate in candidates:
-		str += "<p>{} 기호 {}번 ({})<br>".format(candidate.name,
-			candidate.party_number,
-			candidate.area)
-		str += candidate.introduction + "</p>"
-	return HttpResponse(str)
+		
+	return render(request, 'elections/index.html')
